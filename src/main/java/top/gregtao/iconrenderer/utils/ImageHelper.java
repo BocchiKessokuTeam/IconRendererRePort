@@ -1,4 +1,4 @@
-package top.gregtao.iconrenderer;
+package top.gregtao.iconrenderer.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gl.Framebuffer;

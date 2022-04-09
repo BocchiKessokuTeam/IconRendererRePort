@@ -1,4 +1,4 @@
-package top.gregtao.iconrenderer;
+package top.gregtao.iconrenderer.utils;
 
 import com.google.gson.JsonObject;
 import net.minecraft.item.BlockItem;

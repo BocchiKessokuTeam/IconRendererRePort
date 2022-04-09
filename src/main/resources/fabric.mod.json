@@ -3,18 +3,14 @@
   "id": "iconr",
   "version": "${version}",
 
-  "name": "IconRenderer",
-  "description": "IconRenderer",
+  "name": "Icon Renderer - pkstRemix",
+  "description": "pkstDev's very own version of Icon Renderer.",
   "authors": [
-    "GregTao"
+    "GregTao",
+    "pkstDev"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
 
-  "license": "MIT",
-  "icon": "assets/iconr/icon.png",
+  "license": "GPL-3.0",
 
   "environment": "*",
   "entrypoints": {
@@ -22,17 +18,10 @@
       "top.gregtao.iconrenderer.IconRenderer"
     ]
   },
-  "mixins": [
-    "iconrenderer.mixins.json"
-  ],
 
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
-    "minecraft": "1.18.x",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

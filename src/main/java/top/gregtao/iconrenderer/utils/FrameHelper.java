@@ -1,4 +1,4 @@
-package top.gregtao.iconrenderer;
+package top.gregtao.iconrenderer.utils;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
