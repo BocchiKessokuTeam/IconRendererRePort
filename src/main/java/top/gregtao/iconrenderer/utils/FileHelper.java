@@ -83,7 +83,7 @@ public class FileHelper {
         resetLanguage("zh_cn");
         for (JsonMeta meta : this.jsonMetas) {
             meta.zhName = meta.itemStack.getItem().getName().getString();
-            meta.creativeTab = meta.itemGroup.getDisplayName().getString();
+            meta.creativeTab = meta.itemGroup.getName();
         }
         for (EntityJsonMeta meta : this.entityJsonMetas) {
             meta.zhName = meta.entity.getDisplayName().getString();

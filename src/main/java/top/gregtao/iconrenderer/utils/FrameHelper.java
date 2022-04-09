@@ -47,7 +47,7 @@ public class FrameHelper {
         RenderSystem.setProjectionMatrix(projectionMatrix);
 
         this.framebuffer.beginWrite(true);
-        this.framebuffer.beginRead();
+        this.framebuffer.method_35610();
     }
 
     public void endRecord() {
@@ -84,13 +84,13 @@ public class FrameHelper {
     }
 
     public void renderGuiItemIcon(ItemStack stack, int x, int y, ItemRenderer renderer) {
-        this.renderGuiItemModel(stack, x, y, renderer.getModel(stack, null, null, 0), renderer);
+        this.renderGuiItemModel(stack, x, y, renderer.getHeldItemModel(stack, null, null, 0), renderer);
     }
 
     protected void renderGuiItemModel(ItemStack stack, int x, int y, BakedModel model, ItemRenderer renderer) {
         RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
         RenderSystem.enableBlend();
-        RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA, GlStateManager.DstFactor.ONE_MINUS_SRC_ALPHA);
+        RenderSystem.blendFunc(GlStateManager.class_4535.SRC_ALPHA, GlStateManager.class_4534.ONE_MINUS_SRC_ALPHA);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         MatrixStack matrixStack = RenderSystem.getModelViewStack();
         matrixStack.push();
