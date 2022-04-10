@@ -14,6 +14,7 @@ import top.gregtao.iconrenderer.IconRenderer;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,13 +92,13 @@ public class FileHelper {
     }
 
     public void writeToFile() throws IOException {
-        FileWriter writer = new FileWriter(this.file);
+        FileWriter writer = new FileWriter(this.file, StandardCharsets.UTF_8);
         for (JsonMeta meta : this.jsonMetas) {
             writer.write(meta.toJsonObject().toString() + "\n");
         }
         writer.close();
 
-        writer = new FileWriter(this.entityFile);
+        writer = new FileWriter(this.entityFile, StandardCharsets.UTF_8);
         for (EntityJsonMeta meta : this.entityJsonMetas) {
             writer.write(meta.toJsonObject().toString() + "\n");
         }
