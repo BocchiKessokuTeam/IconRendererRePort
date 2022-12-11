@@ -1,11 +1,11 @@
 package io.github.pkstdev.iconrenderer.utils;
 
-import com.mojang.blaze3d.framebuffer.Framebuffer;
-import com.mojang.blaze3d.framebuffer.SimpleFramebuffer;
-import com.mojang.blaze3d.lighting.DiffuseLighting;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gl.Framebuffer;
+import net.minecraft.client.gl.SimpleFramebuffer;
+import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -47,7 +47,7 @@ public class FrameHelper {
         RenderSystem.setProjectionMatrix(projectionMatrix);
 
         this.framebuffer.beginWrite(true);
-        this.framebuffer.endRead();
+        this.framebuffer.beginRead();
     }
 
     public void endRecord() {
@@ -84,13 +84,13 @@ public class FrameHelper {
     }
 
     public void renderGuiItemIcon(ItemStack stack, int x, int y, ItemRenderer renderer) {
-        this.renderGuiItemModel(stack, x, y, renderer.getHeldItemModel(stack, null, null, 0), renderer);
+        this.renderGuiItemModel(stack, x, y, renderer.getModel(stack, null, null, 0), renderer);
     }
 
     protected void renderGuiItemModel(ItemStack stack, int x, int y, BakedModel model, ItemRenderer renderer) {
         RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE);
         RenderSystem.enableBlend();
-        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA.ordinal(), GlStateManager.SourceFactor.ONE_MINUS_SRC_ALPHA.ordinal());
+        RenderSystem.blendFunc(GlStateManager.SrcFactor.SRC_ALPHA.ordinal(), GlStateManager.SrcFactor.ONE_MINUS_SRC_ALPHA.ordinal());
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         MatrixStack matrixStack = RenderSystem.getModelViewStack();
         matrixStack.push();
@@ -103,14 +103,14 @@ public class FrameHelper {
         VertexConsumerProvider.Immediate immediate = MinecraftClient.getInstance().getBufferBuilders().getEntityVertexConsumers();
         boolean bl = !model.isSideLit();
         if (bl) {
-            DiffuseLighting.setupFlatGuiLighting();
+            DiffuseLighting.enableGuiDepthLighting();
         }
 
         renderer.renderItem(stack, ModelTransformation.Mode.GUI, false, matrixStack2, immediate, 15728880, OverlayTexture.DEFAULT_UV, model);
         immediate.draw();
         RenderSystem.enableDepthTest();
         if (bl) {
-            DiffuseLighting.setupFlatGuiLighting();
+            DiffuseLighting.disableGuiDepthLighting();
         }
 
         matrixStack.pop();

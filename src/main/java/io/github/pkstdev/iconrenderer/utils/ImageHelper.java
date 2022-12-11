@@ -1,8 +1,9 @@
 package io.github.pkstdev.iconrenderer.utils;
 
-import com.mojang.blaze3d.framebuffer.Framebuffer;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.texture.NativeImage;
+import net.minecraft.client.gl.Framebuffer;
+import net.minecraft.client.texture.NativeImage;
+
 
 import java.io.IOException;
 import java.util.Base64;
