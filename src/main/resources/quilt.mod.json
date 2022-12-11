@@ -13,7 +13,8 @@
 			},
 			"contact": {
 				"sources": "https://github.com/BocchiKessokuTeam/IconRendererRePort"
-			}
+			},
+			"license": "GPLv3"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
