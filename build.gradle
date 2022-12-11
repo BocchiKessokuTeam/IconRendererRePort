@@ -1,5 +1,5 @@
 plugins {
-    id "dev.architectury.loom" version "0.11.0-SNAPSHOT"
+    id "dev.architectury.loom" version "0.12.0-SNAPSHOT"
     id "maven-publish"
 }
 
@@ -28,7 +28,6 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-
     forge "net.minecraftforge:forge:${project.forge_version}"
 }
 
@@ -60,21 +59,5 @@ jar {
                 "Implementation-Vendor"   : project.mod_author,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
-    }
-
-    repositories {
     }
 }

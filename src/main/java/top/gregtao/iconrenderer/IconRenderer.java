@@ -13,8 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.gregtao.iconrenderer.commands.ExportIconsCommand;
 
-@Mod("iconr")
+@Mod(IconRenderer.MODID)
 public class IconRenderer {
+    public static final String MODID = "iconr";
     public static final Logger logger = LoggerFactory.getLogger("Icon Renderer");
 
     public IconRenderer() {
