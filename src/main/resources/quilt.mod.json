@@ -1,45 +1,42 @@
 {
-  "schema_version": 1,
-  "quilt_loader": {
-    "group": "icon-renderer-port",
-    "id": "iconr",
-    "version": "${version}",
-
-    "name": "Icon Renderer",
-    "description": "Icon Renderer ported to Quilt",
-    "authors": [
-      "GregTao",
-      "pkstDev"
-    ],
-    "contact": {
-      "sources": "https://github.com/pkstDev/IconRendererPort"
-    },
-
-    "license": "GPL-3.0",
-
-    "environment": "*",
-    "entrypoints": {
-      "init": [
-        "top.gregtao.iconrenderer.IconRenderer"
-      ]
-    },
-    "depends": [
-      {
-        "id": "quilt_loader",
-        "version": "*"
-      },
-      {
-        "id": "quilt_base",
-        "version": "*"
-      },
-      {
-        "id": "minecraft",
-        "version": "1.18.2"
-      },
-      {
-        "id": "java",
-        "version": ">=17"
-      }
-    ]
-  }
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "io.github.pkstdev",
+		"id": "iconr",
+		"version": "${version}",
+		"metadata": {
+			"name": "Icon Renderer",
+			"description": "Icon Renderer ported to Quilt",
+			"contributors": {
+				"GregTao, pkstDev": "Credits",
+				"TexTrue, BocchiKessokuTeam, TexTrueStudio": "Authors"
+			},
+			"contact": {
+				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+			},
+			"license": "GPLv3"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "io.github.pkstdev.iconrenderer.IconRenderer"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.16.0-"
+			},
+			{
+				"id": "quilt_base",
+				"version": "*"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=1.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.18.2"
+			}
+		]
+	}
 }
