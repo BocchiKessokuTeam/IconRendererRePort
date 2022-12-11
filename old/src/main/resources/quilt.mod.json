@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "icon-renderer-port",
+    "id": "iconr",
+    "version": "${version}",
+
+    "name": "Icon Renderer",
+    "description": "Icon Renderer ported to Quilt",
+    "authors": [
+      "GregTao",
+      "pkstDev"
+    ],
+    "contact": {
+      "sources": "https://github.com/pkstDev/IconRendererPort"
+    },
+
+    "license": "GPL-3.0",
+
+    "environment": "*",
+    "entrypoints": {
+      "init": [
+        "top.gregtao.iconrenderer.IconRenderer"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": "1.18.2"
+      },
+      {
+        "id": "java",
+        "version": ">=17"
+      }
+    ]
+  }
+}
