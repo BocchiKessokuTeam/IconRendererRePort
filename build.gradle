@@ -4,7 +4,7 @@ plugins {
 }
 
 archivesBaseName = project.archives_base_name
-version = "${project.version}+${libs.versions.minecraft.get()}"
+version = project.version
 group = project.maven_group
 
 repositories {
@@ -12,7 +12,6 @@ repositories {
 
 dependencies {
 	minecraft libs.minecraft
-	//mappings variantOf(libs.quilt.mappings) { classifier 'intermediary-v2' }
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation libs.quilt.loader
 
