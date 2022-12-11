@@ -3,14 +3,19 @@
   "id": "iconr",
   "version": "${version}",
 
-  "name": "Icon Renderer - pkstRemix",
-  "description": "pkstDev's very own version of Icon Renderer.",
-  "authors": [
+  "name": "Icon Renderer",
+  "description": "Icon Renderer ported to Fabric 1.19.x .",
+  "credits": [
     "GregTao",
     "pkstDev"
   ],
+  "authors": [
+    "TexTrue",
+    "BocchiKessokuTeam",
+    "TexTrueStudio"
+  ],
 
-  "license": "GPL-3.0",
+  "license": "GPLv3",
 
   "environment": "*",
   "entrypoints": {
@@ -20,6 +25,7 @@
   },
 
   "depends": {
+    "minecraft": "1.19.x",
     "fabricloader": ">=0.13.3",
     "fabric": "*",
     "java": ">=17"

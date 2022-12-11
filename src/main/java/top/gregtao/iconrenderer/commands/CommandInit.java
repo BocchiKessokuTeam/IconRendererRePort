@@ -1,18 +1,18 @@
 package top.gregtao.iconrenderer.commands;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import top.gregtao.iconrenderer.utils.FileHelper;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 
 public class CommandInit {
     public static void registerCommands() {
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("exporticons")
+        assert ClientCommandManager.getActiveDispatcher() != null;
+        ClientCommandManager.getActiveDispatcher().register(ClientCommandManager.literal("exporticons")
                 .then(ClientCommandManager.argument("modid", StringArgumentType.string())
                         .executes((context) -> {
                             String modId = context.getArgument("modid", String.class);
@@ -25,7 +25,7 @@ public class CommandInit {
                         })
                 )
         );
-        ClientCommandManager.DISPATCHER.register(ClientCommandManager.literal("exporticons")
+        ClientCommandManager.getActiveDispatcher().register(ClientCommandManager.literal("exporticons")
                 .then(ClientCommandManager.literal("all")
                         .executes((context) -> {
                             List<ModContainer> loadedMods = FabricLoader.getInstance().getAllMods().stream().toList();
